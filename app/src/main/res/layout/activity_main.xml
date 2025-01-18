@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+        <!--Добавим размер теста (textSize="25sp")-->
+    <!--Добавим стиль теста (textStyle="italic")-->
+    <!--Добавим цвет теста и прозрачность (@color/colorRed со ссылкой на colors.xml)-->
+    <!--Добавим тень теста (строки 19-22, там где cлово shadow)-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:text="@string/my_text"
+        android:textColor="@color/colorRed"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Добавим картинку в jpg/webp (src="@drawable/ezio_auditore")-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ezio_auditore"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
+
+    <!--Добавим размер теста "Нажми меня!" (textSize="20sp")-->
+    <!--Добавим в созданный ранее файл dimens.xml размер от верха кнопки
+      до надписи "Привет..." (layout_margin="@dimen/marginTop_button")-->
+    <!--Добавим ссылку на всплывающую при нажатии кнопки надпись:
+    android:onClick="onClickToast" (запускает метод из Main_Activity)-->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTop_button"
+        android:background="@drawable/rectangle"
+        android:onClick="onClickToast"
+        android:text="@string/text_on_button"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!--Добавим кнопку с визуальными эффектами
+    (androidx.appcompat.widget.AppCompatButton), простая кнопка так может-->
+    <!--Добавим в созданный ранее файл dimens.xml размер от верха кнопки
+      до кнопки "Нажми меня" (layout_margin="@dimen/marginTop_AppCompatButton")-->
+    <!--Добавим ссылку на файл ripple_button.xml для отображения цветного перелива
+      для кнопки "Нажми...снова" (layout_margin="@dimen/marginTop_AppCompatButton")-->
+    <!--Добавим ссылку на всплывающую при нажатии кнопки очередную надпись:
+    android:onClick="onClickToast" (запускает метод из Main_Activity)-->
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AppCompatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTop_AppCompatButton"
+        android:background="@drawable/ripple_button"
+        android:onClick="onClickToast2"
+        android:text="@string/text_on_button2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <!--Добавим кнопку с визуальными эффектами (копия, указанной выше),
+        только ссылку изменим и вместо "@drawable/ripple_button"
+        напишем: background="?android...Borderless"-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AppCompatButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTop_AppCompatButton2"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickToast2"
+        android:text="@string/text_on_button_2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/AppCompatButton"
+        app:layout_constraintStart_toStartOf="@+id/AppCompatButton"
+        app:layout_constraintTop_toBottomOf="@+id/AppCompatButton" />
+
+    <FrameLayout
+        android:id="@+id/customCardView"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_margin="@dimen/marginTop_CardView"
+        android:background="@android:color/transparent"
+        android:elevation="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/AppCompatButton2"
+        app:layout_constraintStart_toStartOf="@+id/AppCompatButton2"
+        app:layout_constraintTop_toBottomOf="@+id/AppCompatButton2">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="9dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rectangle"
+            android:scaleType="fitCenter"
+            app:cardElevation="15dp"
+            android:src="@drawable/ezio_auditore"
+            app:layout_constraintEnd_toEndOf="@+id/AppCompatButton2"
+            app:layout_constraintStart_toStartOf="@+id/AppCompatButton2"
+            app:layout_constraintTop_toBottomOf="@+id/AppCompatButton2"
+
+            />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
