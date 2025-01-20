@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-        <!--Добавим размер теста (textSize="25sp")-->
+    <!--Добавим размер теста (textSize="25sp")-->
     <!--Добавим стиль теста (textStyle="italic")-->
     <!--Добавим цвет теста и прозрачность (@color/colorRed со ссылкой на colors.xml)-->
     <!--Добавим тень теста (строки 19-22, там где cлово shadow)-->
@@ -29,16 +29,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Добавим картинку в jpg/webp (src="@drawable/ezio_auditore")-->
-    <ImageView
-        android:id="@+id/imageView"
+    <!--Добавим CardView с нашей старой картинкой и новыми эффектами:
+    сardElevation (левитация) и cardCornerRadius (скругление углов)-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/customCardView"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/ezio_auditore"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="30dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textView">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rectangle"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ezio_auditore"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView" />
+
+    </androidx.cardview.widget.CardView>
 
     <!--Добавим размер теста "Нажми меня!" (textSize="20sp")-->
     <!--Добавим в созданный ранее файл dimens.xml размер от верха кнопки
@@ -60,14 +79,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <!--Добавим кнопку с визуальными эффектами
-    (androidx.appcompat.widget.AppCompatButton), простая кнопка так может-->
+    (androidx.appcompat.widget.AppCompatButton), простая кнопка так не может-->
     <!--Добавим в созданный ранее файл dimens.xml размер от верха кнопки
       до кнопки "Нажми меня" (layout_margin="@dimen/marginTop_AppCompatButton")-->
     <!--Добавим ссылку на файл ripple_button.xml для отображения цветного перелива
       для кнопки "Нажми...снова" (layout_margin="@dimen/marginTop_AppCompatButton")-->
     <!--Добавим ссылку на всплывающую при нажатии кнопки очередную надпись:
     android:onClick="onClickToast" (запускает метод из Main_Activity)-->
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/AppCompatButton"
@@ -83,8 +101,8 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <!--Добавим кнопку с визуальными эффектами (копия, указанной выше),
-        только ссылку изменим и вместо "@drawable/ripple_button"
-        напишем: background="?android...Borderless"-->
+        только ссылку изменим и вместо "@drawable/ripple_button" напишем:
+        background="?android...Borderless", чтобы был кружок при нажатии-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/AppCompatButton2"
@@ -98,33 +116,5 @@
         app:layout_constraintEnd_toEndOf="@+id/AppCompatButton"
         app:layout_constraintStart_toStartOf="@+id/AppCompatButton"
         app:layout_constraintTop_toBottomOf="@+id/AppCompatButton" />
-
-    <FrameLayout
-        android:id="@+id/customCardView"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_margin="@dimen/marginTop_CardView"
-        android:background="@android:color/transparent"
-        android:elevation="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/AppCompatButton2"
-        app:layout_constraintStart_toStartOf="@+id/AppCompatButton2"
-        app:layout_constraintTop_toBottomOf="@+id/AppCompatButton2">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="9dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/rectangle"
-            android:scaleType="fitCenter"
-            app:cardElevation="15dp"
-            android:src="@drawable/ezio_auditore"
-            app:layout_constraintEnd_toEndOf="@+id/AppCompatButton2"
-            app:layout_constraintStart_toStartOf="@+id/AppCompatButton2"
-            app:layout_constraintTop_toBottomOf="@+id/AppCompatButton2"
-
-            />
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
