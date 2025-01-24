@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--Добавим размер теста (textSize="25sp")-->
+    <!--Добавим стиль теста (textStyle="italic")-->
+    <!--Добавим цвет теста и прозрачность (@color/colorRed со ссылкой на colors.xml)-->
+    <!--Добавим тень теста (строки 19-22, там где cлово shadow)-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="650dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:text="@string/my_text"
+        android:textColor="@color/colorRed"
+        android:textSize="50sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Добавим CardView с нашей старой картинкой и новыми эффектами:
+    сardElevation (левитация) и cardCornerRadius (скругление углов)-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/customCardView"
+        android:layout_width="650dp"
+        android:layout_height="650dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rectangle"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ezio_auditore"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!--Добавим размер теста "Нажми меня!" (textSize="20sp")-->
+    <!--Добавим в созданный ранее файл dimens.xml размер от верха кнопки
+      до надписи "Привет..." (layout_margin="@dimen/marginTop_button")-->
+    <!--Добавим ссылку на всплывающую при нажатии кнопки надпись:
+    android:onClick="onClickToast" (запускает метод из Main_Activity)-->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTop_button"
+        android:background="@drawable/rectangle"
+        android:onClick="onClickToast"
+        android:text="@string/text_on_button"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!--Добавим кнопку с визуальными эффектами
+    (androidx.appcompat.widget.AppCompatButton), простая кнопка так не может-->
+    <!--Добавим в созданный ранее файл dimens.xml размер от верха кнопки
+      до кнопки "Нажми меня" (layout_margin="@dimen/marginTop_AppCompatButton")-->
+    <!--Добавим ссылку на файл ripple_button.xml для отображения цветного перелива
+      для кнопки "Нажми...снова" (layout_margin="@dimen/marginTop_AppCompatButton")-->
+    <!--Добавим ссылку на всплывающую при нажатии кнопки очередную надпись:
+    android:onClick="onClickToast" (запускает метод из Main_Activity)-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AppCompatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTop_AppCompatButton"
+        android:background="@drawable/ripple_button"
+        android:onClick="onClickToast2"
+        android:text="@string/text_on_button2"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <!--Добавим кнопку с визуальными эффектами (копия, указанной выше),
+        только ссылку изменим и вместо "@drawable/ripple_button" напишем:
+        background="?android...Borderless", чтобы был кружок при нажатии-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AppCompatButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTop_AppCompatButton2"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickToast2"
+        android:text="@string/text_on_button_2"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="@+id/AppCompatButton"
+        app:layout_constraintStart_toStartOf="@+id/AppCompatButton"
+        app:layout_constraintTop_toBottomOf="@+id/AppCompatButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

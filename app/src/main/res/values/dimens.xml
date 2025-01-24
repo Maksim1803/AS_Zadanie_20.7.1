@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marginTop_button">10dp</dimen>
-    <dimen name="marginTop_AppCompatButton">10dp</dimen>
-    <dimen name="marginTop_AppCompatButton2">40dp</dimen>
-    <dimen name="marginTop_CardView">15dp</dimen>
+    <dimen name="marginTop_button">20dp</dimen>
+    <dimen name="marginTop_AppCompatButton">20dp</dimen>
+    <dimen name="marginTop_AppCompatButton2">50dp</dimen>
+    <dimen name="marginTop_CardView">25dp</dimen>
 </resources>
